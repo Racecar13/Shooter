@@ -28,7 +28,7 @@ public class PlayerMove : MonoBehaviour
 
     void Update()
     {
-        transform.Translate(10 * moveValue.x * Time.deltaTime, 0, moveValue.y * Time.deltaTime);
+        transform.Translate(moveValue.x * Time.deltaTime, 0, moveValue.y * Time.deltaTime);
         transform.Rotate(0, lookValue * Time.deltaTime, 0);
     }
 }
