@@ -15,7 +15,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2334120568254833515
 Transform:
@@ -46,5 +46,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 4790501661041624596, guid: 79f73d82f3325c54aa8e4d68b037a451, type: 3}
   startTime: 0
-  endTime: 1
-  spawnRate: 1
+  endTime: 30
+  spawnRate: 5
