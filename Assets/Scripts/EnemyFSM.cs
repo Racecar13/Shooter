@@ -15,6 +15,7 @@ public class EnemyFSM : MonoBehaviour
     public float fireRate;
     public float lastShootTime;
     public GameObject shootPoint;
+    public Animator animator;
 
     private void Awake()
     {
@@ -32,6 +33,7 @@ public class EnemyFSM : MonoBehaviour
 
     void GoToBase()
     {
+        animator.SetBool("Shooting", false);
         agent.isStopped = false;
         agent.SetDestination(baseTransform.position);
         if (sightSensor.detectedObject != null)
@@ -56,6 +58,7 @@ public class EnemyFSM : MonoBehaviour
 
     void ChasePlayer()
     {
+        animator.SetBool("Shooting", false);
         agent.isStopped = false;
 
         if (sightSensor.detectedObject == null)
@@ -106,8 +109,10 @@ public class EnemyFSM : MonoBehaviour
 
     void Shoot()
     {
+        animator.SetBool("Shooting", true);
+
         var timeSinceLastShoot = Time.time - lastShootTime;
-        if (timeSinceLastShoot > fireRate)
+        if (timeSinceLastShoot > fireRate && Time.timeScale > 0)
         {
             lastShootTime = Time.time;
             Instantiate(bulletPrefab, shootPoint.transform.position, shootPoint.transform.rotation);
